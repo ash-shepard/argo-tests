@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-addons
+  namespace: argocd
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - matrix:
+        generators:
+          - list:
+              elements:
+                - prefix: prefix-test
+                  folderName: app-test
+                  projectName: default
+          - git:
+              repoURL: https://github.com/ash-shepard/argo-tests.git
+              revision: main
+              files:
+                - path: "app-test"
+
+  template:
+    metadata:
+      name: "test-name"
+
+    spec:
+      project: "{{projectName}}"
+      source:
+        repoURL: https://github.com/ash-shepard/argo-tests.git
+        targetRevision: main
+        path: "{{path}}"
+      syncPolicy:
+        retry:
+          limit: 2
