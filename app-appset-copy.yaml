@@ -10,13 +10,13 @@ spec:
           - list:
               elements:
                 - prefix: prefix-test
-                  folderName: app-test
+                  folderName: delete-test
                   projectName: default
           - git:
               repoURL: https://github.com/ash-shepard/argo-tests.git
               revision: main
               files:
-                - path: "app-test"
+                - path: "delete-test"
 
   template:
     metadata:
@@ -31,3 +31,6 @@ spec:
       syncPolicy:
         retry:
           limit: 2
+      destination:
+        server: "https://kubernetes.default.svc"
+        namespace: "{{prefix}}-{{ name }}"
