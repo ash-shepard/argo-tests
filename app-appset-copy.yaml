@@ -20,7 +20,7 @@ spec:
 
   template:
     metadata:
-      name: "test-name"
+      name: "test-name-2-electric-boogaloo"
 
     spec:
       project: "{{projectName}}"
@@ -33,4 +33,4 @@ spec:
           limit: 2
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "{{prefix}}-{{ name }}"
+        namespace: "default"

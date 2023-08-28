@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blah
+  name: "test-name-2-electric-boogaloo"
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: blah
+      app: "test-name-2-electric-boogaloo"
   template:
     metadata:
       labels:
-        app: blah
+        app: "test-name-2-electric-boogaloo"
     spec:
       containers:
         - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-          name: blah
+          name: "test-name-2-electric-boogaloo"
           ports:
             - containerPort: 80
 
