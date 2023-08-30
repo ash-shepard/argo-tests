@@ -5,7 +5,8 @@ metadata:
   namespace: argocd
 spec:
   syncPolicy:
-    preserveResourcesOnDeletion: true
+    #   preserveResourcesOnDeletion: true
+    applicationsSync: create-update
   generators:
     - matrix:
         generators:
@@ -32,7 +33,7 @@ spec:
         path: "{{path}}"
       syncPolicy:
         automated:
-          prune: true
+          # prune: true
           selfHeal: true
           # allowEmpty: true
       destination:
