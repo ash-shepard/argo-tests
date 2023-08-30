@@ -6,7 +6,7 @@ metadata:
 spec:
   syncPolicy:
     # preserveResourcesOnDeletion: true
-    applicationsSync: create-update
+    # applicationsSync: create-update
   generators:
     - matrix:
         generators:
