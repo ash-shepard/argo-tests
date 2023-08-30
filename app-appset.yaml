@@ -4,8 +4,9 @@ metadata:
   name: cluster-addons
   namespace: argocd
 spec:
-  # syncPolicy:
-  #   preserveResourcesOnDeletion: true
+  syncPolicy:
+    #   preserveResourcesOnDeletion: true
+    applicationsSync: create-update
   generators:
     - matrix:
         generators:
