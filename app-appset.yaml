@@ -5,8 +5,8 @@ metadata:
   namespace: argocd
 spec:
   syncPolicy:
-    # preserveResourcesOnDeletion: true
-    applicationsSync: create-update
+    preserveResourcesOnDeletion: true
+    # applicationsSync: create-update
   generators:
     - matrix:
         generators:
@@ -31,9 +31,9 @@ spec:
         repoURL: https://github.com/ash-shepard/argo-tests.git
         targetRevision: main
         path: "{{path}}"
-      syncPolicy:
-        retry:
-          limit: 2
+      # syncPolicy:
+      #   retry:
+      #     limit: 2
       destination:
         server: "https://kubernetes.default.svc"
         namespace: "default"
