@@ -1,0 +1,20 @@
+name: Auto-Promote Pipeline Trigger 1 Test
+run-name: "Auto Promote ${{ github.event.client_payload.component  }} from ${{ github.event.client_payload.stage }} Trigger 1 Test"
+
+on:
+  repository_dispatch:
+    types: [auto-promote-notification-1]
+
+env:
+  STAGE: ${{ github.event.client_payload.stage }}
+  COMPONENT: ${{ github.event.client_payload.component }}
+
+jobs:
+  print-context:
+    name: Print Context
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Context
+        run: |
+          echo "COMPONENT: ${{ env.COMPONENT }} "
+          echo "STAGE: ${{ env.STAGE }} "
