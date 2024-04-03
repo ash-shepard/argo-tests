@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "test-name-2"
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: "test-name-2"
+  template:
+    metadata:
+      labels:
+        app: "test-name-2"
+        component: "test-name-2"
+        stage: "test"
+    spec:
+      containers:
+        - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+          name: "test-name-2"
+          ports:
+            - containerPort: 80
+
+
