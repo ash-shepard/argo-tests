@@ -1,5 +1,5 @@
 name: Auto-Promote Pipeline Trigger 2 Test
-run-name: "Auto Promote ${{ github.event.client_payload.component  }} from ${{ github.event.client_payload.stage }} Trigger 2 Test"
+run-name: "Auto Promote Trigger 2 Test"
 
 on:
   repository_dispatch:
