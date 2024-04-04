@@ -4,9 +4,6 @@ metadata:
   name: cluster-addons
   namespace: argocd
 spec:
-  syncPolicy:
-    preserveResourcesOnDeletion: false
-    # applicationsSync: create-update
   generators:
     - matrix:
         generators:
@@ -15,15 +12,20 @@ spec:
                 - prefix: prefix-test
                   folderName: app-test
                   projectName: default
+                - prefix: prefix-test
+                  folderName: app-test-2
+                  projectName: default
           - git:
               repoURL: https://github.com/ash-shepard/argo-tests.git
               revision: main
               files:
-                - path: "app-test"
+                - path: "{{folderName}}"
 
   template:
     metadata:
-      name: "test-name"
+      name: "{{folderName}}"
+      component: "{{name}}"
+      stage: "test"
 
     spec:
       project: "{{projectName}}"

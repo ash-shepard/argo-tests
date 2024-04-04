@@ -12,8 +12,6 @@ spec:
     metadata:
       labels:
         app: "test-name-2"
-        component: "test-name-2"
-        stage: "test"
     spec:
       containers:
         - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
